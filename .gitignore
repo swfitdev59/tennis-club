@@ -1,0 +1,80 @@
+# Python cache  
+__pycache__/  
+*.py[cod]  
+
+# Django files  
+*.log              # Log files  
+*.pot              # Translation template files  
+*.mo               # Compiled translation files  
+local_settings.py  # Local configuration files  
+debug.log
+django_debug.log
+file_structure.txt
+
+# Django migrations  
+*/migrations/*  
+
+# Database files  
+*.sqlite3         # SQLite database files (used in development)  
+db.sqlite3  
+*.db              # Any other database files you may use  
+
+# Virtual environments  
+venv/  
+env/  
+env.bak/  
+.venv/  
+.venv.bak/  
+
+# Static files  
+/static/  
+staticfiles/  
+media/  
+
+# Environment files  
+.env  
+.env.local  
+.env.production  
+*.env  
+
+# Pip and wheel files  
+*.egg  
+*.egg-info/  
+dist/  
+build/  
+
+# Coverage reports  
+.coverage  
+coverage.xml  
+htmlcov/  
+.nosetests.xml  
+*.cover  
+
+# IDE/editor files  
+.idea/  
+.vscode/  
+*.sublime-project  
+*.sublime-workspace  
+*.iml  
+*.sublime-settings  
+
+# Sphinx documentation  
+docs/_build/  
+build/  
+
+# Mac system files  
+.DS_Store  
+.AppleDouble  
+.LSOverride  
+
+# Unix system files  
+*.swp               # swap files from vim  
+*~  
+
+# Thumbnails  
+Thumbs.db  
+Thumbs.db:encryptable  
+Desktop.ini  
+
+# Jupyter Notebook checkpoints  
+.ipynb_checkpoints
