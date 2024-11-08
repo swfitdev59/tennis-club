@@ -1,5 +1,5 @@
-*************************************************
-sudo nano /etc/nginx/sites-available/tennis_club
+# * sudo nano /etc/nginx/sites-available/tennis_club *
+```sh
 server {
     listen 80;
     server_name 104.236.100.55;
@@ -18,9 +18,10 @@ server {
         proxy_pass http://unix:/run/gunicorn.sock;
     }
 }
+```
 
-**************************************************
-sudo nano /etc/systemd/system/gunicorn.socket
+# * sudo nano /etc/systemd/system/gunicorn.socket *
+```sh
 [Unit]
 Description=gunicorn socket
 
@@ -29,9 +30,10 @@ ListenStream=/run/gunicorn.sock
 
 [Install]
 WantedBy=sockets.target
+```
 
-**************************************************
-sudo nano /etc/systemd/system/gunicorn.service  
+# * sudo nano /etc/systemd/system/gunicorn.service *
+```sh
 [Unit]
 Description=gunicorn daemon
 Requires=gunicorn.socket
@@ -45,4 +47,5 @@ ExecStart=/var/www/tennis-club/.venv/bin/gunicorn --access-logfile - --workers 3
 
 [Install]
 WantedBy=multi-user.target
+```
 
