@@ -14,15 +14,21 @@ CREATE DATABASE tennis_club OWNER masteruser;
 GRANT ALL PRIVILEGES ON DATABASE tennis_club TO masteruser;
 \du
 \l
+\c tennis_club
+\dt
+\d members_member
+SELECT * FROM members_member;  
 \q
+DROP SCHEMA public CASCADE;  
+CREATE SCHEMA public;  
 DROP DATABASE tennis_club;
 DROP ROLE masteruser;
 
 netstat -pln | grep 5432
 psql -U masteruser -h localhost -d tennis_club
 
-python3 manage.py dumpdata > datadump.json
-python3 manage.py loaddata --exclude auth.permission --exclude contenttypes datadump.json
+python3 manage.py dumpdata --natural-foreign --natural-primary > datadump.json
+python3 manage.py loaddata datadump.json // --exclude auth.permission --exclude contenttypes --exclude admin.logentry datadump.json
 python3 manage.py makemigrations
 python3 manage.py migrate --run-syncdb
 python3 manage.py collectstatic
