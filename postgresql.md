@@ -20,6 +20,17 @@ DROP ROLE masteruser;
 
 netstat -pln | grep 5432
 psql -U masteruser -h localhost -d tennis_club
+
+python3 manage.py dumpdata > datadump.json
+python3 manage.py loaddata --exclude auth.permission --exclude contenttypes datadump.json
+python3 manage.py makemigrations
+python3 manage.py migrate --run-syncdb
+python3 manage.py collectstatic
+
+python3 manage.py shell
+from django.contrib.contenttypes.models import ContentType
+ContentType.objects.all().delete()
+ContentType.objects.count()
 ```
 
 # DATABASES Configration
